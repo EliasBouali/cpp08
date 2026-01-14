@@ -58,7 +58,7 @@ static void exceptionTest()
 int main()
 {
     try {
-        basicTest(); 
+        basicTest();
         exceptionTest();
         bigTest();
     }

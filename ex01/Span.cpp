@@ -38,18 +38,18 @@ void Span::addNumber(int value)
   _numbers.push_back(value);
 }
 
-int Span::longestSpan() const
+long long Span::longestSpan() const
 {
   if (_numbers.size() < 2)
     throw NoSpanException();
 
-  int minVal = *std::min_element(_numbers.begin(), _numbers.end());
-  int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
+  long long minVal = *std::min_element(_numbers.begin(), _numbers.end());
+  long long maxVal = *std::max_element(_numbers.begin(), _numbers.end());
 
   return maxVal - minVal;
 }
 
-int Span::shortestSpan() const
+long long Span::shortestSpan() const
 {
   if (_numbers.size() < 2)
     throw NoSpanException();
@@ -57,13 +57,12 @@ int Span::shortestSpan() const
   std::vector<int> tmp(_numbers);
   std::sort(tmp.begin(), tmp.end());
 
-  int bestSpan = std::numeric_limits<int>::max();
+  long long bestSpan = std::numeric_limits<long long>::max();
   for (std::vector<int>::size_type i = 1; i < tmp.size(); ++i)
   {
-    int currentSpan = tmp[i] - tmp[i - 1];
+    long long currentSpan = static_cast<long long>(tmp[i]) - static_cast<long long>(tmp[i - 1]);
     if (currentSpan < bestSpan)
       bestSpan = currentSpan;
   }
   return bestSpan;
 }
-

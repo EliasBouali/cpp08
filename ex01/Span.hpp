@@ -27,8 +27,8 @@ class Span
     template<typename InputIter>
     void addRange(InputIter first, InputIter last);
 
-    int shortestSpan() const;
-    int longestSpan() const;
+    long long shortestSpan() const;
+    long long  longestSpan() const;
 
     class FullSpanException: public std::exception
     {
